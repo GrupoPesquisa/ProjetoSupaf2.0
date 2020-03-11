@@ -29,7 +29,7 @@ public class ProfessorDAO {
             stmt.setString(4, professor.getEndereco().getCidade());
             stmt.setString(5, professor.getEndereco().getBairro());
             stmt.setString(6, professor.getEndereco().getEstado());
-            stmt.setInt(7, professor.getEndereco().getCep());
+            stmt.setLong(7, professor.getEndereco().getCep());
             stmt.setInt(8, professor.getEndereco().getNumero());
             
             stmt.executeUpdate();
@@ -65,7 +65,7 @@ public class ProfessorDAO {
 
             while (rs.next()) {
                  Professor professor = new Professor (rs.getInt("matricula"),rs.getInt("celular"),rs.getString("nome"),
-                    new Endereco(rs.getInt("codigo"), rs.getString("rua"), rs.getString("complemento"), rs.getString("cidade"), rs.getString("bairro"),rs.getString("estado"),rs.getInt("cep"), rs.getInt("numero")),
+                    new Endereco(rs.getInt("codigo"), rs.getString("rua"), rs.getString("complemento"), rs.getString("cidade"), rs.getString("bairro"),rs.getString("estado"),rs.getLong("cep"), rs.getInt("numero")),
                     new Curso(rs.getInt("codigo"),rs.getString("nome")));
                 listaRetorno.add(professor);
             }
@@ -93,7 +93,7 @@ public class ProfessorDAO {
 
             if (rs.next()) {
                 Professor professor = new Professor (rs.getInt("matricula"), rs.getInt("celular"),rs.getString("nome"),
-                    new Endereco(rs.getInt("codigo"), rs.getString("rua"), rs.getString("complemento"), rs.getString("cidade"), rs.getString("bairro"),rs.getString("estado"),rs.getInt("cep"), rs.getInt("numero")),
+                    new Endereco(rs.getInt("codigo"), rs.getString("rua"), rs.getString("complemento"), rs.getString("cidade"), rs.getString("bairro"),rs.getString("estado"),rs.getLong("cep"), rs.getInt("numero")),
                     new Curso(rs.getInt("codigo"),rs.getString("nome")));
 
                 return professor;
@@ -147,4 +147,6 @@ public class ProfessorDAO {
         }
     }
 }
+
+
 
