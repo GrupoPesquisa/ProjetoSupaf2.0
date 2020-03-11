@@ -1,4 +1,5 @@
 
+
 package dao;
 
 import entity.Aluno;
@@ -54,7 +55,7 @@ public class ParqDAO {
             while (rs.next()) {
                 Parq parq = new Parq(rs.getLong("codigo"),rs.getBoolean("probl_cardiaco"),rs.getBoolean("dores_peito"), rs.getBoolean("desmaio_freq"),rs.getBoolean("pressao_art"),rs.getBoolean("p_osseo_articular"),rs.getBoolean("r_n_praticar"), rs.getBoolean("mais65anos"), 
                          new Aluno (rs.getLong("matricula"),rs.getString("nome"),rs.getDate("dataN"),rs.getInt("idade"),rs.getString("sexo"),rs.getString("celular"),rs.getString("email"),rs.getString("telefone"),
-                        new Endereco(rs.getInt("id_endereco"), rs.getString("rua"), rs.getString("complemento"), rs.getString("cidade"), rs.getString("bairro"),rs.getString("estado"),rs.getInt("cep"), rs.getInt("numero")),
+                        new Endereco(rs.getInt("id_endereco"), rs.getString("rua"), rs.getString("complemento"), rs.getString("cidade"), rs.getString("bairro"),rs.getString("estado"),rs.getLong("cep"), rs.getInt("numero")),
                         new Curso (rs.getInt("id_curso"),rs.getString("nome")), new Turma(rs.getInt("id_turma"),rs.getString("nome"), new Curso (rs.getInt("id_curso"), rs.getString("nome")))));   
                 listaRetorno.add(parq);
             }
@@ -86,7 +87,7 @@ public class ParqDAO {
                 rs.getBoolean("desmaio_freq"),rs.getBoolean("pressao_art"),rs.getBoolean("p_osseo_articular"),rs.getBoolean("r_n_praticar"),
                 rs.getBoolean("mais65anos"), 
                          new Aluno (rs.getLong("matricula"),rs.getString("nome"),rs.getDate("dataN"),rs.getInt("idade"),rs.getString("sexo"),rs.getString("celular"),rs.getString("email"),rs.getString("telefone"),
-                        new Endereco(rs.getInt("id_endereco"), rs.getString("rua"), rs.getString("complemento"), rs.getString("cidade"), rs.getString("bairro"),rs.getString("estado"),rs.getInt("cep"), rs.getInt("numero")),
+                        new Endereco(rs.getInt("id_endereco"), rs.getString("rua"), rs.getString("complemento"), rs.getString("cidade"), rs.getString("bairro"),rs.getString("estado"),rs.getLong("cep"), rs.getInt("numero")),
                         new Curso (rs.getInt("id_curso"),rs.getString("nome")), new Turma(rs.getInt("id_turma"),rs.getString("nome"), new Curso (rs.getInt("id_curso"), rs.getString("nome")))));   
                 return parq;
             }
