@@ -1,0 +1,266 @@
+CREATE TABLE Endereco(
+id_endereco bigint PRIMARY KEY NOT NULL,
+rua VARCHAR(70) NOT NULL,
+bairro VARCHAR(50) NOT NULL,
+cep VARCHAR(20) NOT NULL,
+cidade VARCHAR(20)NOT NULL,
+estado VARCHAR(20)NOT NULL,
+numero INTEGER NOT NULL,
+complemento VARCHAR(50) NOT NULL
+);
+
+ create table Curso (
+ id_curso INT PRIMARY KEY not null,
+ nome VARCHAR(70)
+ );
+
+ CREATE TABLE Turma(
+id_turma INT PRIMARY KEY NOT NULL,
+nome VARCHAR(50) NOT NULL,
+fk_id_curso INTEGER NOT NULL,
+);
+
+
+create table aluno(
+  matricula bigint NOT NULL,
+  nome character varying(50) NOT NULL,
+  datan date NOT NULL,
+  idade integer NOT NULL,
+  sexo character varying(20) NOT NULL,
+  celular character varying(20) NOT NULL,
+  email character varying(100) NOT NULL,
+  telefone character varying(20) NOT NULL,
+  fk_id_endereco bigint NOT NULL,
+  fk_id_curso integer NOT NULL,
+  fk_id_turma integer NOT NULL,
+  CONSTRAINT fk_id_endereco FOREIGN KEY (fk_id_endereco) REFERENCES Endereco (id_endereco),
+  CONSTRAINT fk_id_curso FOREIGN KEY (fk_id_curso) REFERENCES Curso(id_curso),
+  CONSTRAINT fk_id_turma FOREIGN KEY (fk_id_turma) REFERENCES Turma(id_turma)
+);
+
+create table professor (
+matricula bigint PRIMARY KEY not null,
+nome VARCHAR(70) not null,
+celular VARCHAR(20),
+fk_id_endereco bigint NOT NULL,
+fk_id_curso integer not null,
+CONSTRAINT fk_id_endereco FOREIGN KEY (fk_id_endereco) REFERENCES Endereco (id_endereco),
+ CONSTRAINT fk_id_curso FOREIGN KEY (fk_id_curso) REFERENCES Curso(id_curso)
+);
+
+CREATE TABLE usuario(
+login VARCHAR(100) NOT NULL,
+senha VARCHAR(100) NOT NULL
+);
+
+
+create table PAR_Q (
+id_parq bigint PRIMARY KEY NOT NULL,
+problema_cardiaco BOOLEAN NOT NULL,
+dores_peito BOOLEAN NOT NULL,
+desmaio_frequencia BOOLEAN NOT NULL,
+pressao_arterial BOOLEAN NOT NULL,
+p_osseo_articular BOOLEAN NOT NULL,
+r_n_praticar BOOLEAN NOT NULL,
+mais65anos BOOLEAN NOT NULL,
+fk_matricula bigint NOT NULL,
+CONSTRAINT fk_matricula FOREIGN KEY (fk_matricula) REFERENCES Aluno(matricula)
+);
+
+
+create table IPAQ (
+id_ipaq BIGINT PRIMARY KEY NOT NULL,
+dias_caminhou INTEGER NOT NULL,
+horas_caminhou VARCHAR(20) NOT NULL,
+ativ_moderada INTEGER NOT NULL,
+tempo_ativ_moderada VARCHAR(20) NOT NULL,
+ativ_vigorosa INTEGER NOT NULL,
+tempo_ativ_vigorosa VARCHAR(20) NOT NULL,
+tempo_gasto_sentado1 VARCHAR(20) NOT NULL,
+tempo_gasto_setado_fds VARCHAR(20) NOT NULL,
+fk_matricula BIGINT NOT NULL,
+CONSTRAINT fk_matricula FOREIGN KEY (fk_matricula) REFERENCES Aluno(matricula)
+);
+
+
+
+create table BSQ (
+id_bsq BIGINT PRIMARY KEY NOT NULL,
+sentir_intediado_ff INTEGER NOT NULL,
+preocupado_ff_dieta INTEGER NOT NULL,
+parte_corpo_cqdG INTEGER NOT NULL,
+medo_ficar_g INTEGER NOT NULL,
+satisfeito_sentir_g INTEGER NOT NULL,
+mal_corpo_chorar INTEGER NOT NULL,
+correr_corpo_balanca INTEGER NOT NULL,
+hmagros_preocupacao_ff INTEGER NOT NULL,
+preocupacao_pcorpo_espalhar INTEGER NOT NULL,
+sentirg_menos_comida INTEGER NOT NULL,
+fisico_hm_comparar INTEGER NOT NULL,
+fisico_concentracao_partic INTEGER NOT NULL,
+nu_banho_corpo INTEGER NOT NULL,
+evitar_roupa_Fcorpo INTEGER NOT NULL,
+corta_porcoes_corpo INTEGER NOT NULL,
+comer_calorias_sentirG INTEGER NOT NULL,
+partic_sentir_malF INTEGER NOT NULL,
+sentir_excesso_g INTEGER NOT NULL,
+vergonha_corpo INTEGER NOT NULL,
+preocup_fisico_dieta INTEGER NOT NULL,
+sentir_contente_estomagoV INTEGER NOT NULL,
+fisico_falta_autocontrole INTEGER NOT NULL,
+preocup_pessoasV_dobras INTEGER NOT NULL,
+achar_injusto_pessoasM INTEGER NOT NULL,
+vomito_sentir_magro INTEGER NOT NULL,
+acompanhadoP_espaco INTEGER NOT NULL,
+preocupar_surgir_dobrasCor INTEGER NOT NULL,
+reflexo_relacao_fisica INTEGER NOT NULL,
+belisca_corpo_gordura INTEGER NOT NULL,
+evitar_situacoes_verCorp INTEGER NOT NULL,
+laxantes_sentir_magro INTEGER NOT NULL,
+conciente_fisico_companhiaPess INTEGER NOT NULL,
+preocupacao_fisico_exercicio INTEGER NOT NULL,
+fk_matricula BIGINT NOT NULL,
+CONSTRAINT fk_matricula FOREIGN KEY (fk_matricula) REFERENCES Aluno(matricula)
+);  
+
+
+
+
+CREATE TABLE kidscreen_52 (
+id_kid BIGINT PRIMARY KEY NOT NULL,
+datah date NOT NULL,
+sexo VARCHAR(20) NOT NULL,
+doencaC_deficiencia String NOT NULL,
+tipoD VARCHAR(100),
+fk_matricula BIGINT NOT NULL,
+CONSTRAINT fk_matricula FOREIGN KEY (fk_matricula) REFERENCES Aluno(matricula)
+);
+
+
+
+create table Saude_ATF (
+id_saude BIGINT PRIMARY KEY NOT NULL,
+CONSTRAINT id_saude FOREIGN KEY (id_saude) REFERENCES kidscreen_52(id_kid),
+sua_saude INTEGER NOT NULL,
+sentido_BeF INTEGER NOT NULL,
+fisicamente_atv INTEGER NOT NULL,
+podido_correr INTEGER NOT NULL
+);
+
+
+
+
+CREATE TABLE sentimentos (
+id_sentimentos BIGINT PRIMARY KEY NOT NULL,
+CONSTRAINT id_sentimentos FOREIGN KEY (id_sentimentos) REFERENCES kidscreen_52(id_kid),
+desfrutado_vida INTEGER NOT NULL,
+sentido_contente INTEGER NOT NULL,
+sentido_satisfeito INTEGER NOT NULL,
+estado_humor INTEGER NOT NULL,
+sentido_alegre INTEGER NOT NULL,
+se_divertido INTEGER NOT NULL
+);
+
+
+
+
+CREATE TABLE animo_emocional (
+id_emocional BIGINT PRIMARY KEY NOT NULL,
+CONSTRAINT id_emocional  FOREIGN KEY (id_emocional ) REFERENCES kidscreen_52(id_kid),
+sensacao_fzr_errado INTEGER NOT NULL,
+sentido_triste INTEGER NOT NULL,
+sentido_mal_fzr_nada INTEGER NOT NULL,
+sensacao_vida_mal INTEGER NOT NULL,
+sentido_cheio_vida INTEGER NOT NULL,
+sentido_so INTEGER NOT NULL,
+sentido_pressao INTEGER NOT NULL
+);
+
+
+
+ CREATE TABLE voce_mesmo (
+ id_voce BIGINT PRIMARY KEY NOT NULL,
+ CONSTRAINT id_voce  FOREIGN KEY ( id_voce) REFERENCES kidscreen_52(id_kid),
+ contente_maneira_ser INTEGER NOT NULL,
+ contente_roupas INTEGER NOT NULL,
+ preocupado_aspcto INTEGER NOT NULL,
+ inveja_colegas INTEGER NOT NULL,
+ parte_corpo_mudar INTEGER NOT NULL
+ );
+
+
+
+ CREATE TABLE tempo_livre (
+ id_tempo BIGINT PRIMARY KEY NOT NULL,
+  CONSTRAINT id_tempo FOREIGN KEY ( id_tempo) REFERENCES kidscreen_52(id_kid),
+ tempo_vc_mesmo INTEGER NOT NULL,
+ fzr_tempo_livre INTEGER NOT NULL,
+ oportunidade_ar_livre INTEGER NOT NULL,
+ tempo_p_amigos INTEGER NOT NULL,
+ escolhido_tempo_livre INTEGER NOT NULL
+ );
+
+
+
+
+ 
+CREATE TABLE vida_familiar (
+id_familia BIGINT PRIMARY KEY NOT NULL,
+CONSTRAINT id_familia FOREIGN KEY (id_familia) REFERENCES kidscreen_52(id_kid),
+entedimento_pais INTEGER NOT NULL,
+Sentquerido_pais INTEGER NOT NULL,
+feliz_casa INTEGER NOT NULL,
+temp_pais INTEGER NOT NULL,
+trat_justo_pais INTEGER NOT NULL,
+dialogo_pais INTEGER NOT NULL
+);
+
+
+
+CREATE TABLE assuntos_financeiros (
+id_financa BIGINT PRIMARY KEY NOT NULL,
+CONSTRAINT id_financa FOREIGN KEY (id_financa) REFERENCES kidscreen_52(id_kid),
+dinheiro_suficiente INTEGER NOT NULL,
+dinheiro_suficiente_gastos INTEGER NOT NULL,
+dinheiro_suficiente_amigos INTEGER NOT NULL
+);
+
+
+
+CREATE TABLE seus_amigos (
+id_amigos BIGINT PRIMARY KEY NOT NULL,
+CONSTRAINT id_amigos FOREIGN KEY (id_amigos) REFERENCES kidscreen_52(id_kid),
+estar_amigos INTEGER NOT NULL,
+realizar_tarefas_jovens INTEGER NOT NULL,
+divertido_Camigos INTEGER NOT NULL,
+amigos_ajuda_UnsaoOutros INTEGER NOT NULL,
+falar_tudo_Camigos INTEGER NOT NULL,
+confianca_amigos INTEGER NOT NULL
+);
+
+
+
+
+CREATE TABLE sua_escola (
+id_escola BIGINT PRIMARY KEY NOT NULL,
+CONSTRAINT id_escola FOREIGN KEY (id_escola) REFERENCES kidscreen_52(id_kid),
+sentido_feliz_escola INTEGER NOT NULL,
+bem_nos_estudos INTEGER NOT NULL,
+satisfeito_Cprofessores INTEGER NOT NULL,
+prestado_atencao_aulas INTEGER NOT NULL,
+gosta_irEscola INTEGER NOT NULL,
+relacao_Cprofessores INTEGER NOT NULL
+);
+
+
+
+CREATE TABLE voce_EosDemais (
+id_voce BIGINT PRIMARY KEY NOT NULL,
+CONSTRAINT id_voce FOREIGN KEY (id_voce) REFERENCES kidscreen_52(id_kid),
+medo_rapazes_mocas INTEGER NOT NULL,
+rapazes_zombado_voce INTEGER NOT NULL,
+rapEmoc_intimidando_voce INTEGER NOT NULL
+);
+
+
+
