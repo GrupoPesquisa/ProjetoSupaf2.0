@@ -29,7 +29,7 @@ public void adicionarAluno(Aluno aluno) {
             stmt.setString(4, aluno.getEndereco().getBairro());
             stmt.setString(5, aluno.getEndereco().getComplemento());
             stmt.setString(6, aluno.getEndereco().getEstado());
-            stmt.setInt(7, aluno.getEndereco().getCep());
+            stmt.setLong(7, aluno.getEndereco().getCep());
             stmt.setInt(8, aluno.getEndereco().getNumero());
             
 
@@ -72,7 +72,7 @@ public void adicionarAluno(Aluno aluno) {
             while (rs.next()) {
                Aluno aluno;
                 aluno = new Aluno (rs.getLong("matricula"),rs.getString("nome"),rs.getDate("dataN"),rs.getInt("idade"),rs.getString("sexo"),rs.getString("celular"),rs.getString("email"),rs.getString("telefone"),
-                        new Endereco(rs.getInt("id_endereco"), rs.getString("rua"), rs.getString("cidade"), rs.getString("bairro"), rs.getString("complemento"),rs.getString("estado"),rs.getInt("cep"), rs.getInt("numero")),                       
+                        new Endereco(rs.getInt("id_endereco"), rs.getString("rua"), rs.getString("cidade"), rs.getString("bairro"), rs.getString("complemento"),rs.getString("estado"),rs.getLong("cep"), rs.getInt("numero")),                       
                         new Curso (rs.getInt("id_curso"),rs.getString("nome")), new Turma(rs.getInt("id_turma"),rs.getString("nome"), new Curso (rs.getInt("id_curso"), rs.getString("nome"))));
                 listaRetorno.add(aluno);
             }
@@ -100,7 +100,7 @@ public void adicionarAluno(Aluno aluno) {
             if (rs.next()) {
                 Aluno aluno;
                 aluno = new Aluno (rs.getLong("matricula"),rs.getString("nome"),rs.getDate("dataN"),rs.getInt("idade"),rs.getString("sexo"), rs.getString("celular"),rs.getString("email"),rs.getString("telefone"),
-                        new Endereco(rs.getInt("id_endereco"), rs.getString("rua"), rs.getString("cidade"), rs.getString("bairro"), rs.getString("complemento"),rs.getString("estado"),rs.getInt("cep"), rs.getInt("numero")),                       
+                        new Endereco(rs.getInt("id_endereco"), rs.getString("rua"), rs.getString("cidade"), rs.getString("bairro"), rs.getString("complemento"),rs.getString("estado"),rs.getLong("cep"), rs.getInt("numero")),                       
                         new Curso (rs.getInt("id_curso"),rs.getString("nome")), new Turma(rs.getInt("id_turma"),rs.getString("nome"), new Curso (rs.getInt("id_curso"), rs.getString("nome"))));       
                 return aluno;
             }
