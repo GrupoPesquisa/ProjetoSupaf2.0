@@ -22,7 +22,7 @@ fk_id_curso INTEGER NOT NULL,
 
 
 create table aluno(
-  matricula bigint NOT NULL,
+  matricula bigint PRIMARY KEY NOT NULL,
   nome character varying(50) NOT NULL,
   datan date NOT NULL,
   idade integer NOT NULL,
@@ -130,7 +130,7 @@ CREATE TABLE kidscreen_52 (
 id_kid BIGINT PRIMARY KEY NOT NULL,
 datah date NOT NULL,
 sexo VARCHAR(20) NOT NULL,
-doencaC_deficiencia String NOT NULL,
+doencaC_deficiencia VARCHAR(20) NOT NULL,
 tipoD VARCHAR(100),
 fk_matricula BIGINT NOT NULL,
 CONSTRAINT fk_matricula FOREIGN KEY (fk_matricula) REFERENCES Aluno(matricula)
