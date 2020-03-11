@@ -61,7 +61,7 @@ public void adicionarIpaq(IPAQ ipaq) {
                 IPAQ ipaq;
                 ipaq = new IPAQ(rs.getLong("codigo"),rs.getInt("dias_caminhou"),rs.getInt("ativ_moderada"),rs.getInt("ativ_vigorosa"),rs.getString("horas_caminhou"),rs.getInt("tempo_ativ_moderada"),rs.getString("tempo_ativ_vigorosa"),rs.getString("tempo_gasto_sentado1"),rs.getString("tempo_gasto_sentadofds"), 
                         new Aluno (rs.getLong("matricula"),rs.getString("nome"),rs.getDate("dataN"),rs.getInt("idade"),rs.getString("sexo"),rs.getString("celular"),rs.getString("email"),rs.getString("telefone"),
-                        new Endereco(rs.getLong("id_endereco"), rs.getString("rua"), rs.getString("cidade"), rs.getString("bairro"), rs.getString("complemento"),rs.getString("estado"),rs.getInt("cep"), rs.getInt("numero")),                       
+                        new Endereco(rs.getLong("id_endereco"), rs.getString("rua"), rs.getString("cidade"), rs.getString("bairro"), rs.getString("complemento"),rs.getString("estado"),rs.getLong("cep"), rs.getInt("numero")),                       
                         new Curso (rs.getInt("id_curso"),rs.getString("nome")), new Turma(rs.getInt("id_turma"),rs.getString("nome"), new Curso (rs.getInt("id_curso"), rs.getString("nome")))));
                 listaRetorno.add(ipaq);
             }
@@ -90,7 +90,7 @@ public void adicionarIpaq(IPAQ ipaq) {
                 IPAQ ipaq;
                 ipaq = new IPAQ(rs.getLong("codigo"),rs.getInt("dias_caminhou"),rs.getInt("ativ_moderada"),rs.getInt("ativ_vigorosa"),rs.getString("horas_caminhou"),rs.getInt("tempo_ativ_moderada"),rs.getString("tempo_ativ_vigorosa"),rs.getString("tempo_gasto_sentado1"),rs.getString("tempo_gasto_sentadofds"),  
                         new Aluno (rs.getLong("matricula"),rs.getString("nome"),rs.getDate("dataN"),rs.getInt("idade"),rs.getString("sexo"),rs.getString("celular"),rs.getString("email"),rs.getString("telefone"),
-                        new Endereco(rs.getLong("id_endereco"), rs.getString("rua"), rs.getString("complemento"), rs.getString("cidade"), rs.getString("bairro"),rs.getString("estado"),rs.getInt("cep"), rs.getInt("numero")),
+                        new Endereco(rs.getLong("id_endereco"), rs.getString("rua"), rs.getString("complemento"), rs.getString("cidade"), rs.getString("bairro"),rs.getString("estado"),rs.getLong("cep"), rs.getInt("numero")),
                         new Curso (rs.getInt("id_curso"),rs.getString("nome")), new Turma(rs.getInt("id_turma"),rs.getString("nome"), new Curso (rs.getInt("id_curso"), rs.getString("nome")))));
                 return ipaq;
             }
