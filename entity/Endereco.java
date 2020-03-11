@@ -1,11 +1,11 @@
 package entity;
 
 public class Endereco {
-    private long codigo;
+    private long codigo, cep;
     private String rua, complemento, cidade, bairro, estado;
-    private int cep, numero;
+    private int  numero;
    
-    public Endereco(long codigo, String rua, String cidade, String bairro, String complemento, String estado, int cep, int numero){
+    public Endereco(long codigo, String rua, String cidade, String bairro, String complemento, String estado, Long cep, int numero){
         this.codigo = codigo;
         this.rua = rua;
         this.complemento = complemento;
@@ -62,10 +62,10 @@ public class Endereco {
         this.estado = estado;
     }
    
-    public int getCep(){
+    public Long getCep(){
         return cep;
     }  
-    public void setCep(int cep){
+    public void setCep(Long cep){
         this.cep = cep;
     }
    
