@@ -89,7 +89,7 @@ public class BsqDAO {
                 ,rs.getInt("preocup_pessoasv_dobras"),rs.getInt("achar_injusto_pessoasm"),rs.getInt("vomito_sentir_magro"),rs.getInt("acompanhadop_espaco")
                 ,rs.getInt("preocupar_surgir_dobrascor"),rs.getInt("reflexo_relacao_fisica"),rs.getInt("belisca_corpo_gordura"),rs.getInt("evitar_situacoes_verCorp"),rs.getInt("laxantes_sentir_magro"),rs.getInt("conciente_fisico_companhiapess"),rs.getInt("preocupacao_fisico_exercicio"), 
                         new Aluno (rs.getLong("matricula"),rs.getString("nome"),rs.getDate("dataN"),rs.getInt("idade"),rs.getString("sexo"),rs.getString("celular"),rs.getString("email"),rs.getString("telefone"),
-                        new Endereco(rs.getLong("id_endereco"), rs.getString("rua"), rs.getString("cidade"), rs.getString("bairro"), rs.getString("complemento"),rs.getString("estado"),rs.getInt("cep"), rs.getInt("numero")),                       
+                        new Endereco(rs.getLong("id_endereco"), rs.getString("rua"), rs.getString("cidade"), rs.getString("bairro"), rs.getString("complemento"),rs.getString("estado"),rs.getLong("cep"), rs.getInt("numero")),                       
                         new Curso (rs.getInt("id_curso"),rs.getString("nome")), 
                         new Turma(rs.getInt("id_turma"),rs.getString("nome"), 
                         new Curso (rs.getInt("id_curso"), rs.getString("nome")))));
@@ -127,7 +127,7 @@ public class BsqDAO {
                 ,rs.getInt("preocup_pessoasv_dobras"),rs.getInt("achar_injusto_pessoasm"),rs.getInt("vomito_sentir_magro"),rs.getInt("acompanhadop_espaco")
                 ,rs.getInt("preocupar_surgir_dobrascor"),rs.getInt("reflexo_relacao_fisica"),rs.getInt("belisca_corpo_gordura"),rs.getInt("evitar_situacoes_verCorp"),rs.getInt("laxantes_sentir_magro"),rs.getInt("conciente_fisico_companhiapess"),rs.getInt("preocupacao_fisico_exercicio"),
                         new Aluno (rs.getLong("matricula"),rs.getString("nome"),rs.getDate("dataN"),rs.getInt("idade"),rs.getString("sexo"),rs.getString("celular"),rs.getString("email"),rs.getString("telefone"),
-                        new Endereco(rs.getLong("id_endereco"), rs.getString("rua"), rs.getString("complemento"), rs.getString("cidade"), rs.getString("bairro"),rs.getString("estado"),rs.getInt("cep"), rs.getInt("numero")),
+                        new Endereco(rs.getLong("id_endereco"), rs.getString("rua"), rs.getString("complemento"), rs.getString("cidade"), rs.getString("bairro"),rs.getString("estado"),rs.getLong("cep"), rs.getInt("numero")),
                         new Curso (rs.getInt("id_curso"),rs.getString("nome")), 
                         new Turma(rs.getInt("id_turma"),rs.getString("nome"), 
                         new Curso (rs.getInt("id_curso"), rs.getString("nome")))));
